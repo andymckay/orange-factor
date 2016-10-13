@@ -19,8 +19,8 @@ def intermittents(person, **kw):
         'emailtype1': 'exact',
         'emailreporter1': '1',
         'email1': person,
-        'product': 'Toolkit',
-        'component': 'Add-ons Manager'
+       # 'product': 'Toolkit',
+       # 'component': 'Add-ons Manager'
     })
     return kw
 
@@ -37,7 +37,6 @@ def rest_query(query, cache=True):
         return json.load(open(filename, 'r'))
 
     log.info('Bugzilla: {}'.format(query))
-    print query
     result = requests.get(query).json()
     if cache:
         json.dump(result, open(filename, 'w'))
